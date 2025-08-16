@@ -2,10 +2,15 @@
     "name": "screeps",
     "version": "0.0.1-alpha",
     "description": "TypeScript project to develop scripts for Screeps, a game about automation and scripting.",
-    "main": "main.js",
     "scripts": {
+        "build": "node scripts/build.mjs",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "author": "joan.rosellr@gmail.com",
-    "license": "GPL-3.0-only"
+    "license": "GPL-3.0-only",
+    "devDependencies": {
+        "esbuild": "0.25.9",
+        "typescript": "5.9.2",
+        "@types/screeps": "3.3.8"
+    }
 }
