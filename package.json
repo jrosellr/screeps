@@ -1,0 +1,11 @@
+{
+    "name": "screeps",
+    "version": "0.0.1-alpha",
+    "description": "TypeScript project to develop scripts for Screeps, a game about automation and scripting.",
+    "main": "main.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "joan.rosellr@gmail.com",
+    "license": "GPL-3.0-only"
+}
