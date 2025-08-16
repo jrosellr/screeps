@@ -2,12 +2,12 @@
   "name": "screeps",
   "version": "0.0.1-alpha",
   "description": "TypeScript project to develop scripts for Screeps, a game about automation and scripting.",
+  "author": "joan.rosellr@gmail.com",
+  "license": "GPL-3.0-only",
   "scripts": {
     "build": "node scripts/build.mjs",
     "format": "prettier --write ."
   },
-  "author": "joan.rosellr@gmail.com",
-  "license": "GPL-3.0-only",
   "devDependencies": {
     "@types/node": "20.19.11",
     "@types/screeps": "3.3.8",
