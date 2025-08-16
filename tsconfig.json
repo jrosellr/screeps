@@ -16,17 +16,9 @@
     // Transpile our TypeScript code to JavaScript
     "module": "NodeNext",
     "outDir": "dist",
-    "lib": [
-      "es2022",
-      "dom",
-      "dom.iterable"
-    ]
+    "lib": ["es2022", "dom", "dom.iterable"]
   },
   // Include the necessary files for your project
-  "include": [
-    "**/*.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["**/*.ts"],
+  "exclude": ["node_modules"]
 }
