@@ -1,21 +1,28 @@
-import js from "@eslint/js";
-import globals from "globals";
+import eslint from "@eslint/js";
 import tseslint from "typescript-eslint";
-import { defineConfig } from "eslint/config";
 import eslintConfigPrettier from "eslint-config-prettier/flat";
+import markdown from "@eslint/markdown";
 
-export default defineConfig([
+export default tseslint.config(
+  {
+    ignores: ["dist/**"],
+  },
+  eslint.configs.recommended,
   {
     files: ["src/**/*.ts", "scripts/**/*.ts"],
-    plugins: { js },
-    extends: ["js/recommended"],
-    languageOptions: {
-      globals: globals.browser,
-      ecmaVersion: 2021,
+    extends: [
+      tseslint.configs.recommended,
+      tseslint.configs.stylistic,
+      tseslint.configs.strict,
+    ],
+  },
+  {
+    files: ["**/*.md"],
+    plugins: { markdown },
+    language: "markdown/gfm",
+    rules: {
+      "no-irregular-whitespace": "off",
     },
   },
-  tseslint.configs.recommended,
-  tseslint.configs.stylistic,
-  tseslint.configs.strict,
   eslintConfigPrettier,
-]);
+);
