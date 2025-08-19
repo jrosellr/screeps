@@ -6,6 +6,7 @@
     "module": "preserve",
     "moduleDetection": "force",
     "allowJs": true,
+    "allowImportingTsExtensions": true,
 
     // Bundler mode
     "moduleResolution": "bundler",
@@ -20,6 +21,12 @@
     "noImplicitOverride": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noPropertyAccessFromIndexSignature": true
+    "noPropertyAccessFromIndexSignature": true,
+
+    // Types
+    "types": [
+      "bun",
+      "screeps"
+    ]
   }
 }

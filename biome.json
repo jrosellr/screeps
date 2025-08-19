@@ -17,6 +17,15 @@
     "enabled": true,
     "rules": {
       "recommended": true,
+      "nursery": "error",
+      "correctness": {
+        "noUnusedVariables": "error",
+        "noUnusedImports": "error",
+        "noUnusedFunctionParameters": "error",
+        "noUnusedPrivateClassMembers": "error",
+        "noUndeclaredVariables": "off"
+      },
+      "style": "error",
       "performance": "error"
     }
   },
