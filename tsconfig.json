@@ -24,9 +24,6 @@
     "noPropertyAccessFromIndexSignature": true,
 
     // Types
-    "types": [
-      "bun",
-      "screeps"
-    ]
+    "types": ["bun", "screeps"]
   }
 }

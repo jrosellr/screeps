@@ -10,7 +10,7 @@ function cpu(): void {
   console.log(`CPU: ${Game.cpu.getUsed()}`);
 }
 
-const MIN_WORKERS: number = 5;
+const MIN_WORKERS = 5;
 
 export function loop(): void {
   const colonies = Object.values(Game.rooms)

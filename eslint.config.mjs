@@ -2,6 +2,7 @@ import js from "@eslint/js";
 import globals from "globals";
 import tseslint from "typescript-eslint";
 import { defineConfig } from "eslint/config";
+import eslintConfigPrettier from "eslint-config-prettier/flat";
 
 export default defineConfig([
   {
@@ -10,8 +11,11 @@ export default defineConfig([
     extends: ["js/recommended"],
     languageOptions: {
       globals: globals.browser,
-      ecmaVersion: 2021
-    }
+      ecmaVersion: 2021,
+    },
   },
   tseslint.configs.recommended,
+  tseslint.configs.stylistic,
+  tseslint.configs.strict,
+  eslintConfigPrettier,
 ]);
