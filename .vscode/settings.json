@@ -3,6 +3,7 @@
   "files.trimFinalNewlines": true,
   "files.insertFinalNewline": true,
   "editor.formatOnSave": true,
+  "eslint.enable": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.biome": "explicit",
     "source.organizeImports.biome": "explicit"

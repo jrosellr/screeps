@@ -7,30 +7,17 @@
   },
   "files": {
     "ignoreUnknown": true,
-    "includes": ["src/**/*.ts", "scripts/**/*.ts"]
+    "includes": ["src/**/*.ts", "scripts/**/*.ts", "*.config.mjs"]
   },
   "formatter": {
     "enabled": true,
     "useEditorconfig": true
   },
   "linter": {
-    "enabled": true,
-    "rules": {
-      "recommended": true,
-      "nursery": "error",
-      "correctness": {
-        "noUnusedVariables": "error",
-        "noUnusedImports": "error",
-        "noUnusedFunctionParameters": "error",
-        "noUnusedPrivateClassMembers": "error",
-        "noUndeclaredVariables": "off"
-      },
-      "style": "error",
-      "performance": "error"
-    }
+    "enabled": false
   },
   "assist": {
-    "enabled": true,
+    "enabled": false,
     "actions": {
       "source": {
         "organizeImports": "on"
