@@ -1,10 +1,7 @@
-const miner = require("./miner");
-
-function loop() {
-  console.log(Game.time);
-  miner.run();
+function cpu() {
+  console.log(`CPU: ${Game.cpu.getUsed()}`);
 }
 
-module.exports = {
-  loop: loop,
-};
+export function loop() {
+  cpu();
+}
