@@ -10,11 +10,12 @@ export default tseslint.config(
   eslint.configs.recommended,
   {
     files: ["src/**/*.ts", "scripts/**/*.ts"],
-    extends: [
-      tseslint.configs.recommended,
-      tseslint.configs.stylistic,
-      tseslint.configs.strict,
-    ],
+    extends: [tseslint.configs.strict, tseslint.configs.stylistic],
+    rules: {
+      "@typescript-eslint/explicit-module-boundary-types": "error",
+      "@typescript-eslint/no-empty-interface": "error",
+      "no-empty": "error",
+    },
   },
   {
     files: ["**/*.md"],

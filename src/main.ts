@@ -1,13 +1,13 @@
-import { type ColonyState, loadColony } from "./core/colony.ts";
-
-declare global {
-  interface RoomMemory {
-    colony?: ColonyState;
-  }
-}
+import {loadColony} from "./core/colony.ts";
 
 function cpu(): void {
   console.log(`CPU: ${Game.cpu.getUsed()}`);
+}
+
+declare global {
+  interface CreepMemory {
+    colony?: string;
+  }
 }
 
 const MIN_WORKERS = 5;
@@ -21,27 +21,15 @@ export function loop(): void {
 
   for (const colony of colonies) {
     if (colony.creeps.length < MIN_WORKERS) {
-      const spawns = colony.spawns
-        .map((id) => {
-          return Game.getObjectById(id);
-        })
-        .filter((object) => {
-          return object !== null;
-        });
+      if (colony.spawnFacility === undefined) {
+        continue;
+      }
 
-      const spawn = spawns.find((spawn) => {
-        return spawn.spawning === null;
+      const status = colony.spawnFacility.spawn([WORK, CARRY, MOVE, MOVE], {
+        colony: colony.name,
       });
-
-      if (spawn !== undefined) {
-        const creepCost =
-          BODYPART_COST[WORK] + BODYPART_COST[CARRY] + BODYPART_COST[MOVE] * 2;
-        if (creepCost <= colony.energy.available) {
-          spawn.spawnCreep(
-            [WORK, CARRY, MOVE, MOVE],
-            `creep-${Date.now().toString(32)}`,
-          );
-        }
+      if (status !== OK) {
+        console.log(`${colony.name} . Failed to spawn ${status}`);
       }
     }
   }

@@ -1,37 +1,37 @@
-function loadEnergy(room: Room): EnergyState {
+import { SpawnFacility } from "./spawn-facility";
+
+function loadEnergy(room: Room): EnergyStore {
   return {
     available: room.energyAvailable,
     capacity: room.energyCapacityAvailable,
   };
 }
 
-export interface ColonyState {
+export interface Colony {
   name: string;
   level: number;
-  energy: EnergyState;
-  creeps: Id<Creep>[];
-  spawns: Id<StructureSpawn>[];
+  energy: EnergyStore;
+  creeps: Creep[];
+  spawnFacility: SpawnFacility | undefined;
 }
 
-export interface EnergyState {
+export interface EnergyStore {
   available: number;
   capacity: number;
 }
 
-export function loadColony(room: Room): ColonyState {
+export function loadColony(room: Room): Colony {
   if (room.controller === undefined) {
     throw new Error("Invalid room.");
   }
 
-  const state: ColonyState = {
+  const energy = loadEnergy(room);
+  const spawns = room.find(FIND_MY_SPAWNS);
+  return {
     name: room.name,
     level: room.controller.level,
-    energy: loadEnergy(room),
-    creeps: room.find(FIND_MY_CREEPS).map((x) => x.id),
-    spawns: room.find(FIND_MY_SPAWNS).map((x) => x.id),
+    energy: energy,
+    creeps: room.find(FIND_MY_CREEPS),
+    spawnFacility: SpawnFacility.From(spawns, energy.available),
   };
-
-  room.memory.colony = state;
-
-  return state;
 }
